@@ -16,7 +16,11 @@ class CategoryController extends Controller
     {
         $category = new CategoryEntity();
         $category->setName('DIY search API');
-
+        $category = $this
+            ->getDoctrine()
+            ->getRepository(CategoryEntity::class)
+            ->find(1);
+        \dump($category);
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->persist($category);
         $entityManager->flush();
@@ -35,6 +39,18 @@ class CategoryController extends Controller
         $entityManager->flush();
 
         return $this->redirectToRoute('index');
+    }
+    public function showCategories()
+    {
+        $categories = $this
+            ->getDoctrine()
+            ->getRepository(CategoryEntity::class)
+            ->findAll();
+
+            return $this->render('category/show-categories.html.twig',[
+                'categories' => $categories,
+        ]);
+
     }
 
 }
