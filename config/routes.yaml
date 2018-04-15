@@ -22,4 +22,7 @@ newCategory:
 categories:
   path: /category
   controller: App\Controller\CategoryController::showCategories
+categoryFilter:
+  path: /category/filter/{letter}
+  controller: App\Controller\CategoryController::filterCategory
 

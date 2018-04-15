@@ -12,7 +12,7 @@
     <div class="example-wrapper">
         <ul>
             {% for category in categories %}
-                <li><a href="/category/{{ category.getId }}"> {{ category.getName }}</a> </li>
+                <li><a href="/category/{{ category.getId }}"> {{ category }}</a> </li>
 
             {% else %}
                 Brak kategorii.

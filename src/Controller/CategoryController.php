@@ -47,10 +47,22 @@ class CategoryController extends Controller
             ->getRepository(CategoryEntity::class)
             ->findAll();
 
-            return $this->render('category/show-categories.html.twig',[
-                'categories' => $categories,
+        return $this->render('category/show-categories.html.twig', [
+            'categories' => $categories,
         ]);
-
     }
+    public function filterCategory()
+    {
+        $filter = $this
+            ->getDoctrine()
+            ->getRepository(CategoryEntity::class)
+            ->findAll();
+
+            return $this->render('category/show-categories.html.twig',[
+            '   categories' => $filter,
+            ]);
+    }
+
+
 
 }
