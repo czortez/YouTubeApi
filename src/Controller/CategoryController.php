@@ -25,5 +25,16 @@ class CategoryController extends Controller
             'controller_name' => 'CategoryController',
         ]);
     }
+    public function addCategory()
+    {
+        $category = new CategoryEntity();
+        $category->setName('DIY search API');
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($category);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('index');
+    }
 
 }

@@ -16,5 +16,8 @@ user:
 ranking:
   path: /top/{ranking}
   controller: App\Controller\RankingController::showRanking
+newCategory:
+  path: /new/{category}
+  controller: App\Controller\CategoryController::addCategory
 
 
