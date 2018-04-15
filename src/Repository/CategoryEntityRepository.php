@@ -28,7 +28,7 @@ class CategoryEntityRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('c')
             ->where('c.name LIKE :letter')
-            ->setParameter('letter',$letter . '%')
+            ->setParameter('letter', $letter . '%')
             ->getQuery()
             ->getResult();
     }

@@ -51,21 +51,15 @@ class CategoryController extends Controller
             'categories' => $categories,
         ]);
     }
-        public function filterCategory($letter)
+    public function filterCategory($letter)
     {
         $categories = $this
             ->getDoctrine()
             ->getRepository(CategoryEntity::class)
             ->findByFirstLetter($letter);
 
-        return $this->render('category/show-categories.html.twig',[
+        return $this->render('category/show-categories.html.twig', [
             'categories' => $categories,
         ]);
     }
-
-
-
-
-
 }
-
